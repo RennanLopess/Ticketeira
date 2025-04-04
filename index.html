@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketeria - Compre seu ingresso</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ticket 2800</h1>
+        <nav>
+            <ul>
+                <li><button onclick="mudarAba('eventos-funk')">Funk</button></li>
+                <li><button onclick="mudarAba('eventos-eletronica')">Eletrônica</button></li>
+                <li><button onclick="mudarAba('eventos-sertanejo')">Sertanejo</button></li>
+                <li><button onclick="abrirCadastro()">Cadastro</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="eventos-funk" class="aba-eventos">
+        <h2>Eventos de Funk</h2>
+        <div class="evento">
+            <h3>Baile do DjLuncinha</h3>
+            <p>Data: 20 de Julho</p>
+            <p>Local: Londrina-Pr</p>
+            <button onclick="comprarIngresso('Baile do DjLuncinha')">Comprar Ingresso</button>
+        </div>
+        <div class="evento">
+            <h3>Baile do Nan</h3>
+            <p>Data: 21 de Julho</p>
+            <p>Local: Londrina-Pr</p>
+            <button onclick="comprarIngresso('Baile do Nan')">Comprar Ingresso</button>
+        </div>
+        <div class="evento">
+            <h3>Baile do Luidas</h3>
+            <p>Data: 22 de Julho</p>
+            <p>Local: Londrina-Pr</p>
+            <button onclick="comprarIngresso('Baile do Luidas')">Comprar Ingresso</button>
+        </div>
+    </section>
+    
+    <section id="eventos-eletronica" class="aba-eventos" style="display: none;">
+        <h2>Eventos de Música Eletrônica</h2>
+        <div class="evento">
+            <h3>Rave das Estrelas</h3>
+            <p>Data: 15 de Agosto</p>
+            <p>Local: Londrina-Pr</p>
+            <button onclick="comprarIngresso('Rave das Estrelas')">Comprar Ingresso</button>
+        </div>
+    </section>
+    
+    <section id="eventos-sertanejo" class="aba-eventos" style="display: none;">
+        <h2>Eventos Sertanejos</h2>
+        <div class="evento">
+            <h3>Show Jorge & Mateus</h3>
+            <p>Data: 30 de Setembro</p>
+            <p>Local: Londrina-Pr</p>
+            <button onclick="comprarIngresso('Show Jorge & Mateus')">Comprar Ingresso</button>
+        </div>
+        <div class="evento">
+            <h3>Neto</h3>
+            <p>Data: 30 de Setembro</p>
+            <p>Local: Londrina-Pr</p>
+            <button onclick="comprarIngresso('Neto')">Comprar Ingresso</button>
+        </div>
+    </section>
+    
+    <div id="cadastro-modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharCadastro()">&times;</span>
+            <h2>Cadastro</h2>
+            <input type="text" id="nome" placeholder="Nome Completo"><br><br>
+            <input type="email" id="email" placeholder="Email"><br><br>
+            <button onclick="cadastrarCliente()">Cadastrar</button>
+        </div>
+    </div>
+
+    <div id="pagamento-modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharPagamento()">&times;</span>
+            <h2>Pagamento para: <span id="eventoSelecionado"></span></h2>
+            <input type="text" id="nome-pagamento" placeholder="Nome Completo"><br><br>
+            <input type="text" id="cpf-pagamento" placeholder="CPF"><br><br>
+            <select id="forma-pagamento">
+                <option value="">Selecione a forma de pagamento</option>
+                <option value="cartao">Cartão de Crédito</option>
+                <option value="boleto">Boleto Bancário</option>
+                <option value="pix">PIX</option>
+            </select><br><br>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
